@@ -2,6 +2,8 @@ import os
 SAMPLES = 16
 NUM_CLASSES = 1
 TEST_DIR = '/home/pi/Shashang/Pedestrian_detection_and_tracking/Demo/Images/'
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 import pathlib
 import numpy as np
@@ -36,7 +38,7 @@ from IPython import get_ipython
 
 detection_graph = tf.Graph()
 with detection_graph.as_default():
-  od_graph_def = tf.compat.v1.GraphDef()
+  od_graph_def = tf.GraphDef()
   with tf.io.gfile.GFile(PATH_TO_CKPT, 'rb') as fid:
     serialized_graph = fid.read()
     od_graph_def.ParseFromString(serialized_graph)
@@ -142,7 +144,7 @@ for image_path in test_filenames:
         use_normalized_coordinates=True,
         line_thickness=8)
     # print(image_np)
-    output_path = f"/output/image_{count}.jpg"
+    output_path = f"/home/pi/Shashang/Pedestrian_detection_and_tracking/output/brainy_image_{count}.jpg"
     cv2.imwrite(output_path, image_np)
     plt.figure(figsize=IMAGE_SIZE)
     plt.imshow(image_np)
