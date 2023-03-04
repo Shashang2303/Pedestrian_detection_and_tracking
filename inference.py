@@ -38,7 +38,7 @@ from IPython import get_ipython
 
 detection_graph = tf.Graph()
 with detection_graph.as_default():
-  od_graph_def = tf.GraphDef()
+  od_graph_def = tf.compat.v1.GraphDef()
   with tf.io.gfile.GFile(PATH_TO_CKPT, 'rb') as fid:
     serialized_graph = fid.read()
     od_graph_def.ParseFromString(serialized_graph)
