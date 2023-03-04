@@ -1,7 +1,7 @@
 import os
 SAMPLES = 16
 NUM_CLASSES = 1
-TEST_DIR = 'Images/'
+TEST_DIR = '/home/pi/Shashang/Pedestrian_detection_and_tracking/Demo/Images/'
 
 import pathlib
 import numpy as np
@@ -25,10 +25,10 @@ from object_detection.utils import visualization_utils as vis_util
 
 # What model to download.
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
-PATH_TO_CKPT = "Fine_tune_model/frozen_inference_graph.pb"
+PATH_TO_CKPT = "/home/pi/Shashang/Pedestrian_detection_and_tracking/Demo/Fine_tune_model/frozen_inference_graph.pb"
 
 # List of the strings that is used to add correct label for each box.
-PATH_TO_LABELS = "tfrecords/Label_Map.txt"
+PATH_TO_LABELS = "/home/pi/Shashang/Pedestrian_detection_and_tracking/Demo/tfrecords/Label_Map.txt"
 
 
 from IPython import get_ipython
