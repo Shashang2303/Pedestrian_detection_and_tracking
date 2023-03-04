@@ -76,7 +76,7 @@ def run_inference_for_single_image(image, graph):
   with graph.as_default():
     with tf.compat.v1.Session() as sess:
       # Get handles to input and output tensors
-      ops = tf.get_default_graph().get_operations()
+      ops = tf.compat.v1.get_default_graph().get_operations()
       all_tensor_names = {output.name for op in ops for output in op.outputs}
       tensor_dict = {}
       for key in [
@@ -85,7 +85,7 @@ def run_inference_for_single_image(image, graph):
       ]:
         tensor_name = key + ':0'
         if tensor_name in all_tensor_names:
-          tensor_dict[key] = tf.get_default_graph().get_tensor_by_name(
+          tensor_dict[key] = tf.compat.v1.get_default_graph().get_tensor_by_name(
               tensor_name)
       if 'detection_masks' in tensor_dict:
         # The following processing is only for single image
