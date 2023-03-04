@@ -102,7 +102,7 @@ def run_inference_for_single_image(image, graph):
         # Follow the convention by adding back the batch dimension
         tensor_dict['detection_masks'] = tf.expand_dims(
             detection_masks_reframed, 0)
-      image_tensor = tf.get_default_graph().get_tensor_by_name('image_tensor:0')
+      image_tensor = tf.compat.v1.get_default_graph().get_tensor_by_name('image_tensor:0')
 
       # Run inference
       output_dict = sess.run(tensor_dict,
